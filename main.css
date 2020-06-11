@@ -1,0 +1,92 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    align-content: center;
+}
+
+h1{
+    font-size: 100px;
+    text-shadow: -8px 7px 4px #000000, 1px 1px 1px;
+    background: gray;
+    
+                     
+}
+
+.wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-gap: 1rem;
+  height: 100%;
+  width: 100%;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  #004e92 0%, #000428 90% );
+}
+
+.container {
+    display: grid;
+  
+    grid-template-areas:
+      "header header header"
+      "nav content side"
+      "footer footer footer";
+  
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+  
+    height: 100vh;
+  }
+
+  header {
+    grid-area: header;
+    background:red;
+  }
+  
+  nav {
+    grid-area: nav;
+    margin-left: 0.5rem;
+    background:blue;
+  }
+  
+  main {
+    grid-area: content;
+    background:green;
+  }
+  
+  aside {
+    grid-area: side;
+    margin-right: 0.5rem;
+    background:greenyellow;
+  }
+  
+  footer {
+    grid-area: footer;
+    background:pink;
+  }
+
+
+
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-areas:
+        "header"
+        "nav"
+        "content"
+        "side"
+        "footer";
+  
+      grid-template-columns: 1fr;
+      grid-template-rows:
+        auto /* Header */
+        minmax(75px, auto) /* Nav */
+        1fr /* Content */
+        minmax(75px, auto) /* Sidebar */
+        auto; /* Footer */
+    }
+  
+    nav, aside {
+      margin: 0;
+    }
+  }
